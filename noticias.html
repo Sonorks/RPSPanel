@@ -1,0 +1,47 @@
+<header>
+	<nav align="center">
+	  <a href="trivia.html">TRIVIA</a> |
+	  <a href="usuarios.html">USUARIOS</a> |
+	  <a href="noticias.html">NOTICIAS </a> |
+	  <a href="#">SALIR</a> 
+	</nav>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/w3.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</header>
+<body ng-app="moduleNoticias">
+	<div ng-controller="noticiasController">
+		<h1><center>PANEL DE NOTICIAS</center></h1>
+		<div name="divAgregarNoticia">
+			<h2><center>INGRESAR NUEVA NOTICIA</center></h2>
+			<form name="formAgregarNoticia" ng-submit="agregarNoticia(noticia)">
+				<input placeholder="Noticia" ng-model="noticia"></input>
+				<br/><br/>
+				<input type="submit" value="Agregar Noticia"></button>
+			</form>
+		</div>
+		<div name="divEliminarNoticia">
+			<center><h2>ELIMINAR NOTICIA POR ID</h2>
+			<input style="width: 200px" ng-model="idNoticiaEliminar" placeholder="Ingrese ID de Noticia a eliminar"></input>
+			<button class="w3-btn w3-julian" ng-click="eliminarNoticia(idNoticiaEliminar)">Eliminar Noticia</button></center>
+			<br/>
+			<center><button class="w3-btn w3-julian" name="cargarNoticias" ng-click="cargarNoticias()">Cargar Noticias</button></center>
+			<br/>
+			<center><table style="width:70%" class="w3-table w3-centered w3-bordered">
+				<thead>
+			      <tr>
+			        <th><center>ID</center></th>
+			        <th><center>Noticia</center></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+					<tr style="width:80%"  ng-repeat="noticia in noticias | filter:searchText">
+						<td><center>{{noticia.id}}</center></td>
+						<td><center>{{noticia.new}}</center></td>
+					</tr>
+				</tbody>
+			</table></center>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,33 @@
+<header>
+	<nav align="center">
+	  <a href="trivia.html">TRIVIA</a> |
+	  <a href="usuarios.html">USUARIOS</a> |
+	  <a href="noticias.html">NOTICIAS </a> |
+	  <a href="#">SALIR</a> 
+	</nav>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="css/w3.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</header>
+<body ng-app="moduleUsuario">
+	<div ng-controller="usuariosController">
+	<h1><center>PANEL DE USUARIO</center></h1>
+		<div>
+			<center><table style="width:70%" class="w3-table w3-centered w3-bordered">
+				<thead>
+			      <tr>
+			        <th><center>USUARIO</center></th>
+			        <th><center>PUNTAJE</center></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+					<tr style="width:80%"  ng-repeat="usuario in usuarios | filter:searchText">
+						<td><center>{{usuario.username}}</center></td>
+						<td><center>{{usuario.score}}</center></td>
+					</tr>
+				</tbody>
+			</table></center>
+		</div>
+	</div>
+</body>
