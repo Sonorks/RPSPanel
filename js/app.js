@@ -145,3 +145,16 @@ function cargarUsuarios(){
     }
     http.send(null);
   }
+
+var logear = angular.module('login',[]);
+logear.controller('loginController', ['$scope', function($scope){
+  $scope.user = '';
+  $scope.password = '';
+
+  $scope.logear = function(){
+    if($scope.user === 'admin' && $scope.password === 'rpsudea'){
+      window.location="noticias.html";
+    }
+  }
+}]);
+  

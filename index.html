@@ -1,13 +1,15 @@
 <header>
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/app.js"></script>
+  <link rel="stylesheet" href="css/w3.css">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </header>
-<body>
-	<div className="login-form-wrapper">
-      <form onSubmit=alert("logeado papu");>
+<body ng-app="login">
+	<div className="login-form-wrapper" ng-controller="loginController">
+      <form ng-submit="logear()">
         <h4> Datos de usuario </h4>
-        <input name="user" type="text" placeholder="Usuario"></input>
-        <input name="password" type="password" placeholder="Contraseña"></input>
+        <input ng-model="user" type="text" placeholder="Usuario"></input> <br/>
+        <input ng-model="password" type="password" placeholder="Contraseña"></input> <br/>
         <center><input className="button" type="submit" value="Ingresar"/></center>             
       </form>   
     </div>
